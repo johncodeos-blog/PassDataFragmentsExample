@@ -11,9 +11,9 @@ class MainActivity : AppCompatActivity(), Communicator {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Set replace Main Activity content with the Fragment1 content
-        val Fragment1 = Fragment1()
-        supportFragmentManager.beginTransaction().replace(R.id.content_id, Fragment1).commit()
+        // Replace Main Activity content with the Fragment1 content
+        val fragment1 = Fragment1()
+        supportFragmentManager.beginTransaction().replace(R.id.content_id, fragment1).commit()
 
     }
 
