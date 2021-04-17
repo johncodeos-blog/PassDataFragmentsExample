@@ -1,15 +1,19 @@
 package com.johncodeos.passdatafragmentsexample
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import com.johncodeos.passdatafragmentsexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), Communicator {
 
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         // Replace Main Activity content with the Fragment1 content
         val fragment1 = Fragment1()
@@ -17,9 +21,9 @@ class MainActivity : AppCompatActivity(), Communicator {
 
     }
 
-    override fun passDataCom(editext_input: String) {
+    override fun passDataCom(editTextInput: String) {
         val bundle = Bundle()
-        bundle.putString("input_txt",editext_input)
+        bundle.putString("input_txt", editTextInput)
 
         val transaction = this.supportFragmentManager.beginTransaction()
         val frag2 = Fragment2()

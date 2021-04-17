@@ -1,25 +1,32 @@
 package com.johncodeos.passdatafragmentsexample
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_1.view.*
+import com.johncodeos.passdatafragmentsexample.databinding.Fragment1Binding
 
-class Fragment1: Fragment() {
+class Fragment1 : Fragment(R.layout.fragment_1) {
 
+    private lateinit var comm: Communicator
 
-    lateinit var comm: Communicator
+    private var fragment1Binding: Fragment1Binding? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.fragment_1, container, false)
-        comm = activity as Communicator
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        val binding = Fragment1Binding.inflate(inflater, container, false)
+        fragment1Binding = binding
 
-        rootView.enter_btn.setOnClickListener {
-            comm.passDataCom(rootView.input_edittext.text.toString())
+        comm = requireActivity() as Communicator
+        binding.enterBtn.setOnClickListener {
+            comm.passDataCom(binding.inputEdittext.text.toString())
         }
-        return rootView
+
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        fragment1Binding = null
+        super.onDestroyView()
     }
 }
