@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
-class Fragment2 : Fragment(R.layout.fragment_2) {
+class Fragment2 : Fragment() {
 
     private var inputText: String? = ""
 
