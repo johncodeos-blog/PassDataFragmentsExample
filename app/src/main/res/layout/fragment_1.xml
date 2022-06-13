@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
 
     <LinearLayout
@@ -15,27 +15,27 @@
             android:orientation="vertical">
 
         <EditText
-                android:id="@+id/input_edittext"
+                android:id="@+id/input_edit_text"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
-        />
+                app:backgroundTint="@android:color/white"
+                android:autofillHints=""
+                android:inputType="text" />
 
         <Button
                 android:id="@+id/enter_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                android:padding="10dp"
-                android:textAllCaps="false"
                 android:background="@color/colorPrimaryDark"
-        />
+                android:padding="10dp"
+                android:text="Enter"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
     </LinearLayout>
-
 
 
 </RelativeLayout>

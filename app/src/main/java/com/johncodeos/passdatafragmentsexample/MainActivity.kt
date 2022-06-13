@@ -3,17 +3,12 @@ package com.johncodeos.passdatafragmentsexample
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
-import com.johncodeos.passdatafragmentsexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), Communicator {
 
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(R.layout.activity_main)
 
         // Replace Main Activity content with the Fragment1 content
         val fragment1 = Fragment1()

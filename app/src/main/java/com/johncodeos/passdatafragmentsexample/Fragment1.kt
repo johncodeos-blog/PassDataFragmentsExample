@@ -4,29 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.johncodeos.passdatafragmentsexample.databinding.Fragment1Binding
 
 class Fragment1 : Fragment(R.layout.fragment_1) {
 
     private lateinit var comm: Communicator
 
-    private var fragment1Binding: Fragment1Binding? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val binding = Fragment1Binding.inflate(inflater, container, false)
-        fragment1Binding = binding
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val rootView = layoutInflater.inflate(R.layout.fragment_1, container, false)
 
         comm = requireActivity() as Communicator
-        binding.enterBtn.setOnClickListener {
-            comm.passDataCom(binding.inputEdittext.text.toString())
+
+        val enterBtn = rootView.findViewById<Button>(R.id.enter_btn)
+        val inputEditText = rootView.findViewById<EditText>(R.id.input_edit_text)
+        enterBtn.setOnClickListener {
+            comm.passDataCom(inputEditText.text.toString())
         }
 
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        fragment1Binding = null
-        super.onDestroyView()
+        return rootView
     }
 }
